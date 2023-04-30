@@ -30,6 +30,7 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       body: SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.only(top: 60),
@@ -153,128 +154,28 @@ class _HomePageState extends State<HomePage>
                   ],
                 ),
               ),
+              const SizedBox(height: 20),
+
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Row(
-                  // scrollDirection: Axis.horizontal,
-                  children: [
-                    Container(
-                      padding: const EdgeInsets.only(
-                        left: 10,
-                        top: 10,
-                        bottom: 10,
-                        right: 20,
-                      ),
-                      height: 156,
-                      // width: 268,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(25),
-                        color: const Color(AppColor.secondaryColor),
-                      ),
-                      child: Row(
-                        children: [
-                          Container(
-                            height: 140,
-                            width: 134,
-                            decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(25),
-                              image: const DecorationImage(
-                                fit: BoxFit.fill,
-                                image: AssetImage("images/3.png"),
-                              ),
-                            ),
-                            child: Stack(
-                              children: [
-                                const Positioned(
-                                  left: 10,
-                                  top: 10,
-                                  child: CircleAvatar(
-                                    backgroundColor: Color(AppColor.appGreen),
-                                    radius: 12,
-                                    child: Icon(
-                                      Icons.favorite,
-                                      color: Colors.white,
-                                      size: 12,
-                                    ),
-                                  ),
-                                ),
-                                Positioned(
-                                    left: 10,
-                                    bottom: 10,
-                                    child: Container(
-                                      height: 27,
-                                      width: 63,
-                                    ))
-                              ],
-                            ),
-                          ),
-                          const SizedBox(width: 10),
-                          Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                "Sky Dandetions Apartment",
-                                style: GoogleFonts.raleway(
-                                  fontSize: 12,
-                                  fontWeight: FontWeight.w700,
-                                  color: const Color(AppColor.primaryColor),
-                                ),
-                                overflow: TextOverflow.clip,
-                                textAlign: TextAlign.start,
-                              ),
-                              const SizedBox(height: 10),
-                              Row(
-                                children: [
-                                  const Icon(
-                                    Icons.location_on,
-                                    color: Color(AppColor.primaryColor),
-                                    size: 12,
-                                  ),
-                                  const SizedBox(width: 10),
-                                  Text(
-                                    "Jakarta, Indonesia",
-                                    style: GoogleFonts.raleway(
-                                      fontSize: 8,
-                                      fontWeight: FontWeight.w400,
-                                      color: const Color(AppColor.primaryColor),
-                                    ),
-                                    overflow: TextOverflow.ellipsis,
-                                    textAlign: TextAlign.start,
-                                  ),
-                                ],
-                              ),
-                              const SizedBox(height: 20),
-                              RichText(
-                                text: TextSpan(
-                                  children: [
-                                    TextSpan(
-                                      text: r"$ 290",
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 16,
-                                        fontWeight: FontWeight.w600,
-                                        color:
-                                            const Color(AppColor.primaryColor),
-                                      ),
-                                    ),
-                                    TextSpan(
-                                      text: r"/month",
-                                      style: GoogleFonts.montserrat(
-                                        fontSize: 8,
-                                        fontWeight: FontWeight.w500,
-                                        color:
-                                            const Color(AppColor.primaryColor),
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                              )
-                            ],
-                          )
-                        ],
-                      ),
-                    )
-                  ],
+                padding: const EdgeInsets.only(left: 20),
+                child: SizedBox(
+                  height: 156,
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    controller: ScrollController(),
+                    shrinkWrap: true,
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      featuredEstateWidget(),
+                      const SizedBox(width: 10),
+                      featuredEstateWidget(),
+                      const SizedBox(width: 10),
+                      featuredEstateWidget(),
+                      const SizedBox(width: 10),
+                      featuredEstateWidget(),
+                      const SizedBox(width: 10),
+                    ],
+                  ),
                 ),
               )
               // SizedBox(
@@ -296,6 +197,138 @@ class _HomePageState extends State<HomePage>
     );
   }
 
+  Widget featuredEstateWidget() {
+    return Container(
+      padding: const EdgeInsets.only(
+        left: 10,
+        top: 10,
+        bottom: 10,
+        right: 20,
+      ),
+      height: 156,
+      // width: 268,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(25),
+        color: const Color(AppColor.secondaryColor),
+      ),
+      child: Row(
+        children: [
+          Container(
+            height: 140,
+            width: 134,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              image: const DecorationImage(
+                fit: BoxFit.fill,
+                image: AssetImage("images/3.png"),
+              ),
+            ),
+            child: Stack(
+              children: [
+                const Positioned(
+                  left: 10,
+                  top: 10,
+                  child: CircleAvatar(
+                    backgroundColor: Color(AppColor.appGreen),
+                    radius: 12,
+                    child: Icon(
+                      Icons.favorite,
+                      color: Colors.white,
+                      size: 12,
+                    ),
+                  ),
+                ),
+                Positioned(
+                  left: 20,
+                  bottom: 10,
+                  child: Container(
+                    padding: const EdgeInsets.all(7),
+                    height: 27,
+                    decoration: BoxDecoration(
+                      color: const Color(AppColor.primaryColor),
+                      borderRadius: BorderRadius.circular(8),
+                    ),
+                    child: Center(
+                      child: Text(
+                        "Apartment",
+                        style: GoogleFonts.raleway(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                          color: Colors.white,
+                        ),
+                      ),
+                    ),
+                  ),
+                )
+              ],
+            ),
+          ),
+          const SizedBox(width: 10),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                "Sky Dandetions Apartment",
+                style: GoogleFonts.raleway(
+                  fontSize: 12,
+                  fontWeight: FontWeight.w700,
+                  color: const Color(AppColor.primaryColor),
+                ),
+                overflow: TextOverflow.clip,
+                textAlign: TextAlign.start,
+              ),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  const Icon(
+                    Icons.location_on,
+                    color: Color(AppColor.primaryColor),
+                    size: 12,
+                  ),
+                  const SizedBox(width: 10),
+                  Text(
+                    "Jakarta, Indonesia",
+                    style: GoogleFonts.raleway(
+                      fontSize: 8,
+                      fontWeight: FontWeight.w400,
+                      color: const Color(AppColor.primaryColor),
+                    ),
+                    overflow: TextOverflow.ellipsis,
+                    textAlign: TextAlign.start,
+                  ),
+                ],
+              ),
+              const SizedBox(height: 20),
+              RichText(
+                text: TextSpan(
+                  children: [
+                    TextSpan(
+                      text: r"$ 290",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 16,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(AppColor.primaryColor),
+                      ),
+                    ),
+                    TextSpan(
+                      text: "/month",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 8,
+                        fontWeight: FontWeight.w500,
+                        color: const Color(AppColor.primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          )
+        ],
+      ),
+    );
+  }
+
   ListView categoryListChildren() {
     return ListView(
       physics: const BouncingScrollPhysics(),
@@ -311,67 +344,66 @@ class _HomePageState extends State<HomePage>
   }
 
   Widget categoryChildWidget() {
-    return Expanded(
-      child: Container(
-        width: 300,
-        margin: const EdgeInsets.symmetric(horizontal: 15),
-        height: 180,
-        decoration: const BoxDecoration(
-          borderRadius: BorderRadius.only(
-            topRight: Radius.circular(25),
-          ),
-          image: DecorationImage(
-            fit: BoxFit.fill,
-            image: AssetImage("images/haloween.png"),
-          ),
+    return Container(
+      width: 300,
+      margin: const EdgeInsets.symmetric(horizontal: 15),
+      height: 180,
+      decoration: const BoxDecoration(
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(25),
         ),
-        child: Stack(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(top: 50, left: 30),
-              child: Column(
-                children: [
-                  Text(
-                    "Halloween \nSale!",
-                    style: GoogleFonts.raleway(
-                      fontSize: 18,
-                      fontWeight: FontWeight.w700,
-                      color: Colors.white,
-                    ),
-                    textAlign: TextAlign.start,
+        image: DecorationImage(
+          fit: BoxFit.fill,
+          image: AssetImage("images/haloween.png"),
+        ),
+      ),
+      child: Stack(
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(top: 50, left: 30),
+            child: Column(
+              children: [
+                Text(
+                  "Halloween \nSale!",
+                  style: GoogleFonts.raleway(
+                    fontSize: 18,
+                    fontWeight: FontWeight.w700,
+                    color: Colors.white,
                   ),
-                  Text(
-                    "All discount up to 60%",
-                    style: GoogleFonts.raleway(
-                      fontSize: 10,
-                      fontWeight: FontWeight.w400,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            Align(
-              alignment: Alignment.bottomLeft,
-              child: Container(
-                height: 56,
-                width: 93,
-                decoration: const BoxDecoration(
-                  color: Color(AppColor.primaryColor),
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(25),
-                  ),
+                  textAlign: TextAlign.start,
                 ),
-                child: const Center(
-                  child: Icon(
-                    Icons.arrow_forward_ios_rounded,
+                const SizedBox(height: 15),
+                Text(
+                  "All discount up to 60%",
+                  style: GoogleFonts.raleway(
+                    fontSize: 10,
+                    fontWeight: FontWeight.w400,
                     color: Colors.white,
                   ),
                 ),
+              ],
+            ),
+          ),
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Container(
+              height: 56,
+              width: 93,
+              decoration: const BoxDecoration(
+                color: Color(AppColor.primaryColor),
+                borderRadius: BorderRadius.only(
+                  topRight: Radius.circular(25),
+                ),
               ),
-            )
-          ],
-        ),
+              child: const Center(
+                child: Icon(
+                  Icons.arrow_forward_ios_rounded,
+                  color: Colors.white,
+                ),
+              ),
+            ),
+          )
+        ],
       ),
     );
   }
