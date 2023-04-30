@@ -91,22 +91,29 @@ class _HomePageState extends State<HomePage>
 
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: DefaultTabController(
-                  length: 4,
-                  child: TabBar(
-                    controller: pageController,
-                    indicatorColor: const Color(AppColor.primaryColor),
-                    indicator: BoxDecoration(
-                      borderRadius: BorderRadius.circular(20),
-                      color: const Color(AppColor.primaryColor),
+                child: Container(
+                  decoration: BoxDecoration(
+                    color: const Color(AppColor.secondaryColor),
+                    borderRadius: BorderRadius.circular(20),
+                  ),
+                  child: DefaultTabController(
+                    length: 4,
+                    child: TabBar(
+                      indicatorPadding: EdgeInsets.zero,
+                      controller: pageController,
+                      indicatorColor: const Color(AppColor.primaryColor),
+                      indicator: BoxDecoration(
+                        borderRadius: BorderRadius.circular(20),
+                        color: const Color(AppColor.primaryColor),
+                      ),
+                      unselectedLabelColor: const Color(AppColor.primaryColor),
+                      tabs: const [
+                        Tab(text: "all"),
+                        Tab(text: "Home"),
+                        Tab(text: "Apartment"),
+                        Tab(text: "House")
+                      ],
                     ),
-                    unselectedLabelColor: const Color(AppColor.primaryColor),
-                    tabs: const [
-                      Tab(text: "all"),
-                      Tab(text: "Home"),
-                      Tab(text: "Apartment"),
-                      Tab(text: "House")
-                    ],
                   ),
                 ),
               ),
