@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:real_estate_app_new/Screens/splash_screen.dart';
+import 'package:real_estate_app_new/Utils/app_colors.dart';
 
 class MyApp extends StatefulWidget {
   MyApp({super.key});
@@ -15,7 +16,7 @@ class _MyAppState extends State<MyApp> {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: const Color(AppColor.primaryColor),
       ),
       home: const SplashScreen(),
     );
