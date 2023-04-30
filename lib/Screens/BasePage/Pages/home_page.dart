@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Padding(
           padding: const EdgeInsets.only(top: 60),
           child: Column(
@@ -184,6 +185,48 @@ class _HomePageState extends State<HomePage>
                     ],
                   ),
                 ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Row(
+                  children: [
+                    Text(
+                      "Top Locations",
+                      style: GoogleFonts.lato(
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        color: const Color(AppColor.primaryColor),
+                      ),
+                    ),
+                    const Spacer(),
+                    Text(
+                      "explore",
+                      style: GoogleFonts.lato(
+                        fontSize: 10,
+                        fontWeight: FontWeight.w600,
+                        color: const Color(AppColor.primaryColor),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              const SizedBox(height: 20),
+              Padding(
+                padding: const EdgeInsets.only(left: 20),
+                child: SizedBox(
+                  height: 57,
+                  child: ListView(
+                    physics: const BouncingScrollPhysics(),
+                    scrollDirection: Axis.horizontal,
+                    children: [
+                      topLocationsWidget(),
+                      topLocationsWidget(),
+                      topLocationsWidget(),
+                      topLocationsWidget(),
+                    ],
+                  ),
+                ),
               )
               // SizedBox(
               //   height: 47,
@@ -199,6 +242,44 @@ class _HomePageState extends State<HomePage>
               // PageView.builder(itemBuilder: (context, index)=> Text(category[index].name!),)
             ],
           ),
+        ),
+      ),
+    );
+  }
+
+  Container topLocationsWidget() {
+    return Container(
+      height: 56,
+      margin: const EdgeInsets.only(right: 10),
+      padding: const EdgeInsets.fromLTRB(8, 8, 16, 8),
+      decoration: BoxDecoration(
+        color: const Color(AppColor.secondaryColor),
+        borderRadius: BorderRadius.circular(50),
+      ),
+      child: Center(
+        child: Row(
+          children: [
+            Container(
+              height: 60,
+              width: 60,
+              decoration: const BoxDecoration(
+                borderRadius: BorderRadius.all(
+                  Radius.circular(100),
+                ),
+                image: DecorationImage(
+                  fit: BoxFit.cover,
+                  image: AssetImage('images/bali.png'),
+                ),
+              ),
+            ),
+            Text(
+              "Bali",
+              style: GoogleFonts.raleway(
+                fontSize: 10,
+                fontWeight: FontWeight.w500,
+              ),
+            )
+          ],
         ),
       ),
     );
