@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate_app_new/Screens/Authentication/SignUp/user_fill_infomation.dart';
 import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
+import 'package:real_estate_app_new/Utils/app_bar.dart';
 import 'package:real_estate_app_new/Utils/navigation.dart';
 import 'package:real_estate_app_new/custom_widgets.dart';
 
@@ -105,7 +106,9 @@ class _AddPaymentMethodState extends State<AddPaymentMethod> {
                                   }
                                 },
                                 paypal ? selectedColor : unselectedColor,
-                                paypal ? Image.asset("images/paypal.png") : Image.asset("images/paypals.png"),
+                                paypal
+                                    ? Image.asset("images/paypal.png")
+                                    : Image.asset("images/paypals.png"),
                                 paypal ? Colors.white : const Color(0xff53587A),
                               ),
                               const SizedBox(width: 10),
@@ -126,8 +129,12 @@ class _AddPaymentMethodState extends State<AddPaymentMethod> {
                                   }
                                 },
                                 mastercard ? selectedColor : unselectedColor,
-                                mastercard ? Image.asset("images/mastercard.png") : Image.asset("images/mastercard.png"),
-                                mastercard ? Colors.white : const Color(0xff53587A),
+                                mastercard
+                                    ? Image.asset("images/mastercard.png")
+                                    : Image.asset("images/mastercard.png"),
+                                mastercard
+                                    ? Colors.white
+                                    : const Color(0xff53587A),
                               ),
                               const SizedBox(width: 10),
                               buildPaymentMethod(
@@ -146,7 +153,9 @@ class _AddPaymentMethodState extends State<AddPaymentMethod> {
                                   }
                                 },
                                 visa ? selectedColor : unselectedColor,
-                                visa ? Image.asset("images/visa.png") : Image.asset("images/visa.png"),
+                                visa
+                                    ? Image.asset("images/visa.png")
+                                    : Image.asset("images/visa.png"),
                                 visa ? Colors.white : const Color(0xff53587A),
                               ),
                             ],

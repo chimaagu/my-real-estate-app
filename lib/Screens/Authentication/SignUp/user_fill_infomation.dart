@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
+import 'package:real_estate_app_new/Utils/app_bar.dart';
 import 'package:real_estate_app_new/Utils/navigation.dart';
 import 'package:real_estate_app_new/custom_widgets.dart';
 
@@ -87,7 +88,9 @@ class _FillInformationState extends State<FillInformation> {
                           CircleAvatar(
                             radius: 70,
                             backgroundColor: const Color(0xffF5F4F8),
-                            backgroundImage: imageFile == null ? null : FileImage(imageFile!),
+                            backgroundImage: imageFile == null
+                                ? null
+                                : FileImage(imageFile!),
                             child: imageFile == null
                                 ? Icon(
                                     Icons.person,
@@ -228,7 +231,10 @@ class _FillInformationState extends State<FillInformation> {
         children: [
           Text(
             "Choose image from:",
-            style: GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w700, color: const Color(0xff252B5C)),
+            style: GoogleFonts.raleway(
+                fontSize: 18,
+                fontWeight: FontWeight.w700,
+                color: const Color(0xff252B5C)),
           ),
           const SizedBox(height: 30),
           Row(
@@ -247,7 +253,10 @@ class _FillInformationState extends State<FillInformation> {
                     const SizedBox(height: 10),
                     Text(
                       "Camera",
-                      style: GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w400, color: const Color(0xff252B5C)),
+                      style: GoogleFonts.raleway(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff252B5C)),
                     ),
                   ],
                 ),
@@ -266,7 +275,10 @@ class _FillInformationState extends State<FillInformation> {
                     const SizedBox(height: 10),
                     Text(
                       "Galery",
-                      style: GoogleFonts.raleway(fontSize: 18, fontWeight: FontWeight.w400, color: const Color(0xff252B5C)),
+                      style: GoogleFonts.raleway(
+                          fontSize: 18,
+                          fontWeight: FontWeight.w400,
+                          color: const Color(0xff252B5C)),
                     ),
                   ],
                 ),

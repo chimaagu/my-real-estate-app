@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate_app_new/Screens/Authentication/SignUp/payment_method.dart';
 import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
+import 'package:real_estate_app_new/Utils/app_bar.dart';
 import 'package:real_estate_app_new/Utils/navigation.dart';
 import 'package:real_estate_app_new/custom_widgets.dart';
 
@@ -71,7 +72,8 @@ class _EstatePref2State extends State<EstatePref2> {
                         GridView(
                           controller: ScrollController(),
                           shrinkWrap: true,
-                          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                          gridDelegate:
+                              const SliverGridDelegateWithFixedCrossAxisCount(
                             crossAxisCount: 2,
                             crossAxisSpacing: 10,
                             mainAxisSpacing: 15,
@@ -86,7 +88,8 @@ class _EstatePref2State extends State<EstatePref2> {
                                   isApartment = !isApartment;
                                 });
                               },
-                              backGroundColor: isApartment ? selectedColor : unSelectedColor,
+                              backGroundColor:
+                                  isApartment ? selectedColor : unSelectedColor,
                             ),
                             Estatetype(
                               isChecked: isVilla,
@@ -97,7 +100,8 @@ class _EstatePref2State extends State<EstatePref2> {
                                   isVilla = !isVilla;
                                 });
                               },
-                              backGroundColor: isVilla ? selectedColor : unSelectedColor,
+                              backGroundColor:
+                                  isVilla ? selectedColor : unSelectedColor,
                             ),
                             Estatetype(
                               isChecked: isHouse,
@@ -108,7 +112,8 @@ class _EstatePref2State extends State<EstatePref2> {
                                   isHouse = !isHouse;
                                 });
                               },
-                              backGroundColor: isHouse ? selectedColor : unSelectedColor,
+                              backGroundColor:
+                                  isHouse ? selectedColor : unSelectedColor,
                             ),
                             Estatetype(
                               isChecked: isCottage,
@@ -119,7 +124,8 @@ class _EstatePref2State extends State<EstatePref2> {
                                   isCottage = !isCottage;
                                 });
                               },
-                              backGroundColor: isCottage ? selectedColor : unSelectedColor,
+                              backGroundColor:
+                                  isCottage ? selectedColor : unSelectedColor,
                             ),
                             Estatetype(
                               isChecked: isHotel,
@@ -130,7 +136,8 @@ class _EstatePref2State extends State<EstatePref2> {
                                   isHotel = !isHotel;
                                 });
                               },
-                              backGroundColor: isHotel ? selectedColor : unSelectedColor,
+                              backGroundColor:
+                                  isHotel ? selectedColor : unSelectedColor,
                             ),
                           ],
                         )
@@ -223,7 +230,9 @@ class Estatetype extends StatelessWidget {
                 Positioned(
                   top: 8,
                   left: 8,
-                  child: isChecked ? Image.asset('images/checked.png') : Image.asset('images/unchecked.png'),
+                  child: isChecked
+                      ? Image.asset('images/checked.png')
+                      : Image.asset('images/unchecked.png'),
                 ),
               ],
             ),
@@ -232,7 +241,10 @@ class Estatetype extends StatelessWidget {
               padding: const EdgeInsets.only(left: 8.0),
               child: Text(
                 name,
-                style: GoogleFonts.lato(fontWeight: FontWeight.w700, fontSize: 12, color: isChecked ? Colors.white : const Color(0xff1F4C6B)),
+                style: GoogleFonts.lato(
+                    fontWeight: FontWeight.w700,
+                    fontSize: 12,
+                    color: isChecked ? Colors.white : const Color(0xff1F4C6B)),
               ),
             )
           ],

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate_app_new/Screens/Authentication/SignUp/Location/choose_location.dart';
 import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
+import 'package:real_estate_app_new/Utils/app_bar.dart';
 import 'package:real_estate_app_new/Utils/navigation.dart';
 import 'package:real_estate_app_new/custom_widgets.dart';
 

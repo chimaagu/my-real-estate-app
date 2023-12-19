@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate_app_new/Screens/Authentication/SignUp/estate_pref2.dart';
 import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
+import 'package:real_estate_app_new/Utils/app_bar.dart';
 
 import '../../../Utils/navigation.dart';
 import '../../../custom_widgets.dart';
@@ -71,7 +72,9 @@ class _EstatePref1State extends State<EstatePref1> {
                     shrinkWrap: true,
                     scrollDirection: Axis.vertical,
                     controller: ScrollController(),
-                    gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 3, mainAxisSpacing: 3),
+                    gridDelegate:
+                        const SliverGridDelegateWithFixedCrossAxisCount(
+                            crossAxisCount: 3, mainAxisSpacing: 3),
                     children: [
                       Image.asset('images/1.png'),
                       Image.asset('images/2.png'),
