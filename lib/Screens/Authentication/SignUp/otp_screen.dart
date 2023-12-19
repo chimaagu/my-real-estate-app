@@ -6,6 +6,7 @@ import 'package:flutter_countdown_timer/flutter_countdown_timer.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:real_estate_app_new/Screens/Authentication/SignUp/account_location.dart';
+import 'package:real_estate_app_new/Screens/BasePage/base_page.dart';
 
 import '../../../Utils/navigation.dart';
 import '../../../custom_widgets.dart';
@@ -208,6 +209,9 @@ class _OtpPageState extends State<OtpPage> {
                             if (value.length == 1) {
                               FocusScope.of(context).nextFocus();
                             }
+                          },
+                          onEditingComplete: () {
+                            nextPage(context, const BasePage());
                           },
                           textAlign: TextAlign.center,
                           decoration: const InputDecoration(

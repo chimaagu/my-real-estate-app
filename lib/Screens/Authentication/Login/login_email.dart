@@ -24,6 +24,7 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xffE5E5E5),
       body: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -73,11 +74,11 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
                   Visibility(
                     visible: errorVisible,
                     child: Container(
+                      padding: const EdgeInsets.all(15),
                       decoration: BoxDecoration(
                         color: const Color(0xff234F68),
                         borderRadius: BorderRadius.circular(15),
                       ),
-                      height: 50,
                       child: Center(
                         child: Text(
                           errorText,
@@ -184,7 +185,8 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
                             errorVisible = true;
                             errorText = 'Email Cannot be empyty';
                           });
-                        } else if (!emailController.text.contains('@gmail.com')) {
+                        } else if (!emailController.text
+                            .contains('@gmail.com')) {
                           setState(() {
                             errorVisible = true;
                             errorText = 'Please Enter a valid Email address';
@@ -197,8 +199,8 @@ class _EmailLoginPageState extends State<EmailLoginPage> {
                       },
                     ),
                   ),
-                  // const SizedBox(height: 20),
-                  const SizedBox(height: 40),
+                  const SizedBox(height: 20),
+                  // const SizedBox(height: 40),
                   Row(
                     children: [
                       const Flexible(

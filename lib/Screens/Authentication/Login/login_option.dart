@@ -14,45 +14,47 @@ class LoginOption extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+        padding:
+            const EdgeInsets.only(left: 15, right: 15, top: 15, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             GridView(
               shrinkWrap: true,
-              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2, mainAxisSpacing: 10, crossAxisSpacing: 10),
+              gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+                crossAxisCount: 2,
+                mainAxisSpacing: 10,
+                crossAxisSpacing: 10,
+                mainAxisExtent: 150,
+              ),
               children: [
                 SizedBox(
-                  height: 160,
                   child: Image.asset(
                     'images/login2.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 SizedBox(
-                  height: 160,
                   child: Image.asset(
                     'images/login1.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 SizedBox(
-                  height: 160,
                   child: Image.asset(
                     'images/login3.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
                 SizedBox(
-                  height: 160,
                   child: Image.asset(
                     'images/login4.png',
-                    fit: BoxFit.cover,
+                    fit: BoxFit.fill,
                   ),
                 ),
               ],
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 10),
             RichText(
               text: TextSpan(
                 children: [
@@ -105,7 +107,7 @@ class LoginOption extends StatelessWidget {
                 },
               ),
             ),
-            const SizedBox(height: 50),
+            Spacer(),
             Row(
               children: [
                 const Flexible(
@@ -126,7 +128,7 @@ class LoginOption extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 30),
+            Spacer(),
             Row(
               children: [
                 Expanded(
@@ -156,7 +158,7 @@ class LoginOption extends StatelessWidget {
                 )
               ],
             ),
-            const SizedBox(height: 20),
+            const SizedBox(height: 50),
             Align(
               alignment: Alignment.center,
               child: RichText(

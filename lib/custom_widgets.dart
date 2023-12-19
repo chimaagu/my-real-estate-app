@@ -63,45 +63,62 @@ class CustomTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      padding: const EdgeInsets.symmetric(horizontal: 15),
-      height: 70,
-      decoration: BoxDecoration(
-        color: const Color(0xffF5F4F8),
-        borderRadius: BorderRadius.circular(10),
-      ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          Icon(
-            icon,
-            color: const Color(0xff252B5C),
+    // return Container(
+    //   padding: const EdgeInsets.symmetric(horizontal: 15),
+    //   height: 70,
+    //   decoration: BoxDecoration(
+    //     // color: const Color(0xffF5F4F8),
+    //     borderRadius: BorderRadius.circular(10),
+    //   ),
+    //   child: Row(
+    //     mainAxisAlignment: MainAxisAlignment.center,
+    //     children: [
+    //       Icon(
+    //         icon,
+    //         color: const Color(0xff252B5C),
+    //       ),
+    //       const SizedBox(width: 8),
+    //       Flexible(
+    //         child:
+    return TextFormField(
+      autovalidateMode: AutovalidateMode.onUserInteraction,
+      validator: validator,
+      cursorColor: const Color(0xff252B5C),
+      obscureText: isObscure!,
+      controller: controller,
+      onTap: onTap,
+      readOnly: isReadOnly,
+      keyboardType: TextInputType.emailAddress,
+      decoration: InputDecoration(
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Color(0xffF5F4F8),
           ),
-          const SizedBox(width: 8),
-          Flexible(
-            child: TextFormField(
-              autovalidateMode: AutovalidateMode.onUserInteraction,
-              validator: validator,
-              cursorColor: const Color(0xff252B5C),
-              obscureText: isObscure!,
-              controller: controller,
-              onTap: onTap,
-              readOnly: isReadOnly,
-              keyboardType: TextInputType.emailAddress,
-              decoration: InputDecoration(
-                border: InputBorder.none,
-                hintText: hint,
-                helperStyle: GoogleFonts.raleway(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w600,
-                  color: const Color(0xffA1A5C1),
-                ),
-              ),
-            ),
-          )
-        ],
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(
+            color: Color(0xff8BC83F),
+          ),
+        ),
+        prefixIcon: Icon(
+          icon,
+          color: const Color(0xff252B5C),
+        ),
+        border: InputBorder.none,
+        hintText: hint,
+        helperStyle: GoogleFonts.raleway(
+          fontSize: 12,
+          fontWeight: FontWeight.w600,
+          color: const Color(0xffA1A5C1),
+        ),
       ),
     );
+    // )
+    //     ],
+    //   ),
+    // );
   }
 }
 
@@ -120,7 +137,7 @@ class CustomBigBtn extends StatelessWidget {
     return InkWell(
       onTap: onTap,
       child: Container(
-        height: 63,
+        padding: const EdgeInsets.all(15),
         width: 278,
         decoration: BoxDecoration(
           color: const Color(0xff8BC83F),

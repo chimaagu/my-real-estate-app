@@ -32,9 +32,7 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       backgroundColor: Colors.white,
       body: SingleChildScrollView(
-        physics: const BouncingScrollPhysics(),
-        child: Padding(
-          padding: const EdgeInsets.only(top: 60),
+        child: SafeArea(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
@@ -91,31 +89,26 @@ class _HomePageState extends State<HomePage>
               const SizedBox(height: 20),
 
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 20),
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: const Color(AppColor.secondaryColor),
+                padding: const EdgeInsets.only(left: 20),
+                child: TabBar(
+                  tabAlignment: TabAlignment.start,
+                  isScrollable: true,
+                  controller: pageController,
+                  labelPadding: const EdgeInsets.symmetric(horizontal: 20),
+                  indicatorSize: TabBarIndicatorSize.tab,
+                  indicatorColor: const Color(AppColor.primaryColor),
+                  labelColor: Colors.white,
+                  indicator: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
+                    color: const Color(AppColor.primaryColor),
                   ),
-                  child: DefaultTabController(
-                    length: 4,
-                    child: TabBar(
-                      indicatorPadding: EdgeInsets.zero,
-                      controller: pageController,
-                      indicatorColor: const Color(AppColor.primaryColor),
-                      indicator: BoxDecoration(
-                        borderRadius: BorderRadius.circular(20),
-                        color: const Color(AppColor.primaryColor),
-                      ),
-                      unselectedLabelColor: const Color(AppColor.primaryColor),
-                      tabs: const [
-                        Tab(text: "all"),
-                        Tab(text: "Home"),
-                        Tab(text: "Apartment"),
-                        Tab(text: "House")
-                      ],
-                    ),
-                  ),
+                  unselectedLabelColor: const Color(AppColor.primaryColor),
+                  tabs: const [
+                    Tab(text: "all"),
+                    Tab(text: "Home"),
+                    Tab(text: "Apartment"),
+                    Tab(text: "House")
+                  ],
                 ),
               ),
               const SizedBox(height: 15),
@@ -169,7 +162,6 @@ class _HomePageState extends State<HomePage>
                 child: SizedBox(
                   height: 156,
                   child: ListView(
-                    physics: const BouncingScrollPhysics(),
                     controller: ScrollController(),
                     shrinkWrap: true,
                     scrollDirection: Axis.horizontal,
@@ -287,19 +279,14 @@ class _HomePageState extends State<HomePage>
 
   Widget featuredEstateWidget() {
     return Container(
-      padding: const EdgeInsets.only(
-        left: 10,
-        top: 10,
-        bottom: 10,
-        right: 20,
-      ),
+      padding: const EdgeInsets.only(left: 10, top: 10, bottom: 10, right: 20),
       height: 156,
-      // width: 268,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(25),
         color: const Color(AppColor.secondaryColor),
       ),
       child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
             height: 140,
@@ -327,7 +314,7 @@ class _HomePageState extends State<HomePage>
                   ),
                 ),
                 Positioned(
-                  left: 20,
+                  left: 10,
                   bottom: 10,
                   child: Container(
                     padding: const EdgeInsets.all(7),
@@ -352,65 +339,67 @@ class _HomePageState extends State<HomePage>
             ),
           ),
           const SizedBox(width: 10),
-          Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
-                "Sky Dandetions Apartment",
-                style: GoogleFonts.raleway(
-                  fontSize: 12,
-                  fontWeight: FontWeight.w700,
-                  color: const Color(AppColor.primaryColor),
+          Padding(
+            padding: const EdgeInsets.only(top: 10),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  "Sky Dandetions Apartment",
+                  style: GoogleFonts.raleway(
+                    fontSize: 12,
+                    fontWeight: FontWeight.w700,
+                    color: const Color(AppColor.primaryColor),
+                  ),
+                  overflow: TextOverflow.clip,
+                  textAlign: TextAlign.start,
                 ),
-                overflow: TextOverflow.clip,
-                textAlign: TextAlign.start,
-              ),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  const Icon(
-                    Icons.location_on,
-                    color: Color(AppColor.primaryColor),
-                    size: 12,
-                  ),
-                  const SizedBox(width: 10),
-                  Text(
-                    "Jakarta, Indonesia",
-                    style: GoogleFonts.raleway(
-                      fontSize: 8,
-                      fontWeight: FontWeight.w400,
-                      color: const Color(AppColor.primaryColor),
-                    ),
-                    overflow: TextOverflow.ellipsis,
-                    textAlign: TextAlign.start,
-                  ),
-                ],
-              ),
-              const SizedBox(height: 20),
-              RichText(
-                text: TextSpan(
+                const SizedBox(height: 10),
+                Row(
                   children: [
-                    TextSpan(
-                      text: r"$ 290",
-                      style: GoogleFonts.montserrat(
-                        fontSize: 16,
-                        fontWeight: FontWeight.w600,
-                        color: const Color(AppColor.primaryColor),
-                      ),
+                    const Icon(
+                      Icons.location_on,
+                      color: Color(AppColor.primaryColor),
+                      size: 12,
                     ),
-                    TextSpan(
-                      text: "/month",
-                      style: GoogleFonts.montserrat(
+                    const SizedBox(width: 10),
+                    Text(
+                      "Jakarta, Indonesia",
+                      style: GoogleFonts.raleway(
                         fontSize: 8,
-                        fontWeight: FontWeight.w500,
+                        fontWeight: FontWeight.w400,
                         color: const Color(AppColor.primaryColor),
                       ),
+                      overflow: TextOverflow.ellipsis,
+                      textAlign: TextAlign.start,
                     ),
                   ],
                 ),
-              )
-            ],
+                const SizedBox(height: 20),
+                RichText(
+                  text: TextSpan(
+                    children: [
+                      TextSpan(
+                        text: r"$ 290",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 16,
+                          fontWeight: FontWeight.w600,
+                          color: const Color(AppColor.primaryColor),
+                        ),
+                      ),
+                      TextSpan(
+                        text: "/month",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 8,
+                          fontWeight: FontWeight.w500,
+                          color: const Color(AppColor.primaryColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                )
+              ],
+            ),
           )
         ],
       ),
@@ -442,13 +431,14 @@ class _HomePageState extends State<HomePage>
         ),
         image: DecorationImage(
           fit: BoxFit.fill,
+          opacity: 10,
           image: AssetImage("images/haloween.png"),
         ),
       ),
       child: Stack(
         children: [
           Padding(
-            padding: const EdgeInsets.only(top: 50, left: 30),
+            padding: const EdgeInsets.only(top: 30, left: 25),
             child: Column(
               children: [
                 Text(
@@ -500,34 +490,8 @@ class _HomePageState extends State<HomePage>
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
       child: Row(
+        mainAxisAlignment: MainAxisAlignment.end,
         children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 18, vertical: 16),
-            height: 50,
-            decoration: BoxDecoration(
-              border: Border.all(
-                color: const Color(0xffECEDF3),
-              ),
-              borderRadius: BorderRadius.circular(25),
-            ),
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: const [
-                Icon(
-                  Icons.location_on_rounded,
-                  color: kDarkBlue,
-                ),
-                SizedBox(width: 8),
-                Text("Jakarta, Indonesia"),
-                SizedBox(width: 8),
-                Icon(
-                  Icons.keyboard_arrow_down_rounded,
-                  color: kDarkBlue,
-                ),
-              ],
-            ),
-          ),
-          const Spacer(),
           Image.asset(
             "images/Notification.png",
           ),
